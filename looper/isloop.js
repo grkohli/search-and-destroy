@@ -2,7 +2,26 @@
 
 //Complete this algo
 const isLoop = (linkedlist) => {
+    let isLink = true;
+    let currNode = linkedlist.head;
+    // console.log('Head', linkedlist.head)
 
+    while(isLink) {
+        let nextNode = currNode.next;
+
+        if(nextNode.previous === currNode) {
+            isLink = true;
+            currNode = currNode.next;
+        } else {
+            isLink = false;
+        } 
+        
+        if(currNode === linkedlist.tail) {
+            break;
+        }
+    }
+
+    return !isLink;
 };
 
 
